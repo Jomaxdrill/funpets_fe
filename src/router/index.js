@@ -1,5 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import MainScreen from "../views/MainScreen.vue";
+import LoginScreen from "../views/LoginScreen.vue";
 
 const routes = [
   {
@@ -16,6 +18,16 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+  {
+    path: "/Inicio",
+    name: "Inicio",
+    component: MainScreen,
+  },
+  {
+    path: "/Login",
+    name: "Login",
+    component: LoginScreen,
+  }
 ];
 
 const router = createRouter({
