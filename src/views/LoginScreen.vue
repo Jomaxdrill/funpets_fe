@@ -45,7 +45,7 @@
                   type="submit"
                   id="button_login"
                   class="waves-effect waves-light btn orange darken-1"
-                  v:on:click="login"
+                  v-on:click="login"
                 >
                   Entrar
                 </button>
@@ -82,12 +82,12 @@ export default {
   methods: {
     login: function () {
       let json = {
-        correo: this.email,
-        contraseña: this.password,
+        username: this.email,
+        password: this.password,
       };
       console.log(json);
       axios
-        .post("http://solodata.es/auth", json)
+        .post("http://127.0.0.1:8000/login/", json)
         .then((result) => {
           console.log(result);
         })
