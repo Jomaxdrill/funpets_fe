@@ -1,151 +1,196 @@
 <template>
-    <div>
-        <div id="wrapper">
-            <div id="container">
-                <div id="header">
-                    <div id="rectangle">
-                        <div id="inside">
-                            <div id="A1">
-                                <h1>Iniciar Sesión</h1>
-                            </div>
-                            <div id="formulario">
-                                <div class="row">
-                                    <div class="col s8">
-                                        <div class="row">
-                                            <div class="input-field col s12 offset-s3">
-                                            <input type="text" id="autocomplete-input" class="autocomplete">
-                                            <label for="autocomplete-input">Correo</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s8">
-                                        <div class="row">
-                                            <div class="input-field col s12 offset-s3">
-                                            <input type="text" id="autocomplete-input" class="autocomplete">
-                                            <label for="autocomplete-input">Contraseña</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="buttons">
-                                <button type="submit" id="button_login" class="waves-effect waves-light btn orange darken-1">Entrar</button>
-                            </div>
-                            <div id="A2">
-                                <p>Ovidaste tu contraseña? Haz click</p>
-                                <a href="" class="B1">Aquí</a>
-                            </div>
-                            <div id="A3">
-                                <p>Necesitas ayuda? Haz click</p>
-                                <a href="" class="B2">Aquí</a>
-                            </div>
-                        </div>
+  <div>
+    <div id="wrapper">
+      <div id="container">
+        <div id="header">
+          <div id="rectangle">
+            <div id="inside">
+              <div id="A1">
+                <h1>Iniciar Sesión</h1>
+              </div>
+              <div id="formulario">
+                <div class="row">
+                  <div class="col s8">
+                    <div class="row">
+                      <div class="input-field col s12 offset-s3">
+                        <input
+                          type="text"
+                          id="autocomplete-input"
+                          class="autocomplete"
+                          v-model="email"
+                        />
+                        <label for="autocomplete-input">Correo</label>
+                      </div>
                     </div>
+                  </div>
                 </div>
+                <div class="row">
+                  <div class="col s8">
+                    <div class="row">
+                      <div class="input-field col s12 offset-s3">
+                        <input
+                          type="text"
+                          id="autocomplete-input"
+                          class="autocomplete"
+                          v-model="password"
+                        />
+                        <label for="autocomplete-input">Contraseña</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button
+                  type="submit"
+                  id="button_login"
+                  class="waves-effect waves-light btn orange darken-1"
+                  v:on:click="login"
+                >
+                  Entrar
+                </button>
+              </div>
+              <div id="A2">
+                <p>Ovidaste tu contraseña? Haz click</p>
+                <a href="" class="B1">Aquí</a>
+              </div>
+              <div id="A3">
+                <p>Necesitas ayuda? Haz click</p>
+                <a href="" class="B2">Aquí</a>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-export default {}
+import axios from "axios";
+export default {
+  name: "Login",
+  components: {},
+  data() {
+    return {
+      email: "",
+      password: "",
+      error: false,
+      error_msg: "",
+    };
+  },
+  methods: {
+    login: function () {
+      let json = {
+        correo: this.email,
+        contraseña: this.password,
+      };
+      console.log(json);
+      axios
+        .post("http://solodata.es/auth", json)
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.error("There was an error!", error);
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
 #wrapper {
-    background: #fff;
-    width: 100%;
-    height: auto;
+  background: #fff;
+  width: 100%;
+  height: auto;
 }
 
-#container{
-    width: 1340px;
-    height: auto;
-    margin: auto;
+#container {
+  width: 1340px;
+  height: auto;
+  margin: auto;
 }
 
-#header{
-    height: 645px;
-    width: 1344px;
-    padding: 50px 50px 0px 50px;
-    background-image: url("../assets/wp2016066.jpg");
+#header {
+  height: 645px;
+  width: 1344px;
+  padding: 50px 50px 0px 50px;
+  background-image: url("../assets/wp2016066.jpg");
 }
 
-#rectangle{
-    text-align: center;
-    position: relative;
-    width: 470px; 
-    height: 570px; 
-    border: 3px solid #000;
-    background-color: #fff;
-    bottom: 15px;
-    left: 350px;
-    box-shadow: 2px 2px 2px 1px black;
+#rectangle {
+  text-align: center;
+  position: relative;
+  width: 470px;
+  height: 570px;
+  border: 3px solid #000;
+  background-color: #fff;
+  bottom: 15px;
+  left: 350px;
+  box-shadow: 2px 2px 2px 1px black;
 }
 
-#inside{
-    position: relative;
-    top: 27px;
-
+#inside {
+  position: relative;
+  top: 27px;
 }
 
-#A1 h1{
-    font-family: 'Architects Daughter', cursive;
-    font-size: 40px;
+#A1 h1 {
+  font-family: "Architects Daughter", cursive;
+  font-size: 40px;
 }
 
-#formulario{
-    font-family: 'Architects Daughter', cursive;
+#formulario {
+  font-family: "Architects Daughter", cursive;
 }
 
-#email{
-    font-family: 'Architects Daughter', cursive;
-    width: 250px;
-    border: 2px solid black;
-    box-shadow: 2px 2px 2px 1px black;
+#email {
+  font-family: "Architects Daughter", cursive;
+  width: 250px;
+  border: 2px solid black;
+  box-shadow: 2px 2px 2px 1px black;
 }
 
-#password{
-    font-family: 'Architects Daughter', cursive;
-    width: 250px;
-    border: 2px solid black;
-    box-shadow: 2px 2px 2px 1px black;
+#password {
+  font-family: "Architects Daughter", cursive;
+  width: 250px;
+  border: 2px solid black;
+  box-shadow: 2px 2px 2px 1px black;
 }
 
-#button_login{
-    position: relative;
-    top: -15px;
-    font-size: 16px;
-    cursor: pointer;
+#button_login {
+  position: relative;
+  top: -15px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-#A2{
-    position: relative;
-    top: 5px;
-    right: 16px;
-    font-family: 'Architects Daughter', cursive;
+#A2 {
+  position: relative;
+  top: 5px;
+  right: 16px;
+  font-family: "Architects Daughter", cursive;
 }
 
-.B1{
-    position: relative;
-    left: 139px;
-    bottom: 37px;
-    font-family: 'Architects Daughter', cursive;
+.B1 {
+  position: relative;
+  left: 139px;
+  bottom: 37px;
+  font-family: "Architects Daughter", cursive;
 }
 
-#A3{
-    position: relative;
-    top: -29px;
-    right: 20px;
-    font-family: 'Architects Daughter', cursive;
+#A3 {
+  position: relative;
+  top: -29px;
+  right: 20px;
+  font-family: "Architects Daughter", cursive;
 }
 
-.B2{
-    position: relative;
-    left: 115px;
-    bottom: 37px;
-    font-family: 'Architects Daughter', cursive;
+.B2 {
+  position: relative;
+  left: 115px;
+  bottom: 37px;
+  font-family: "Architects Daughter", cursive;
 }
 </style>
