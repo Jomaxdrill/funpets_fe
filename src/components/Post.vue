@@ -27,7 +27,7 @@
         <div class="card-panel cyan lighten-5 z-depth-1" style="height:70px;">
           <div class="row valign-wrapper">
             <div class="col s12 m12">
-                <span class="flow-text" id="link_profile">
+                <span class="flow-text" id="date_post">
                 {{now}}
                 </span>
             </div>
