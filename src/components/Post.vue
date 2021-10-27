@@ -1,148 +1,148 @@
 <template>
-  <div>
-  </div>
-<ul id="slide-out" class="sidenav">
-    <li><div class="user-view">
-      <div class="background">
-        <img src="images/office.jpg">
-      </div>
-      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-      <a href="#name"><span class="white-text name">John Doe</span></a>
-      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-    </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
-    <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-  </ul>
-  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-  <div class="container"> 
-      
+  <div class="container">   
     <div class="row">
-      <div class="col s1 red">1</div>
-      <div class="col s1 blue">2</div>
-      <div class="col s1 yellow">3</div>
-      <div class="col s1">4</div>
-      <div class="col s1">5</div>
-      <div class="col s1">6</div>
-      <div class="col s1">7</div>
-      <div class="col s1">8</div>
-      <div class="col s1">9</div>
-      <div class="col s1">10</div>
-      <div class="col s1">11</div>
-      <div class="col s1">12</div>
-    </div>
-    <div class="row">
-                <div class="input-field col s3">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-                </div>
-       <div class="col s3 green">
-            <nav>
-
-                <div class="nav-wrapper">
-                    <div class="input-field">
-                    <input id="search" type="search" required>
-                    <label class="label-icon " for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                    </div>
-                </div>
-            </nav>
-      </div>       
-
-
-     </div>          
-    <div class="row">
-    <div class="col s3"> 
-     <span class="flow-text pepito">
-        {{nickname}}
-    </span>  
-    </div>
-     <div class="col s6">  
-         <i class="material-icons">android</i>
-    </div>
-    </div>
-    <div class="row">
-     <span class="flow-text blue lighten-3">
-        {{now}}
-    </span>
-    </div>
-    <div class="row">
-    <div class="input-field col s12">
-        <textarea  class="materialize-textarea"></textarea>
-    </div>
-    </div>
-    <div class="row red">
-        <div class="fixed-action-btn">
-            <a class="btn-floating btn-large red">
-                <i class="large material-icons">bubble_chart</i>
-            </a>
-            <ul>
-                <li><a class="btn-floating puprle"><i class="material-icons">check</i></a></li>
-                <li><a class="btn-floating yellow darken-1"><i class="material-icons">ondemand_video</i></a></li>
-                <li><a class="btn-floating blue lighten-5"><i class="material-icons">gif</i></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-
-        <div class="fixed-action-btn">
-            <a class="btn-floating btn-large red">
-                <i class="large material-icons">bubble_chart</i>
-            </a>
-            <ul>
-                <li><a class="btn-floating red"><i class="material-icons">check</i></a></li>
-                <li><a class="btn-floating yellow darken-1"><i class="material-icons">favorite</i></a></li>
-                <li><a class="btn-floating blue lighten-5"><i class="material-icons">flare</i></a></li>
-                <li><a class="btn-floating green"><i class="material-icons">grade</i></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-    <div class="input-field col s3 red">
-    <select >
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
-    </div>
-            <div class="col s3 offset-s6 yellow">    
-            <button class="btn waves-effect waves-light purple darken-3" name="action">Publicar
-            <i class="material-icons right">send</i>
-            </button>
+      <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel cyan lighten-5 z-depth-1" style="height:90px;">
+          <div class="row valign-wrapper">
+            <div class="col s3 valign-wrapper">
+               <a class="btn-floating btn-large waves-effect waves-light  light-blue lighten-5" id="link_pet" href="#">
+              <img alt="" class="responsive-img" src="https://ppeah.com/files/2020/07/iStock-639868212.jpg"
+               style="padding-top: 25%;"> <!-- notice the "circle" class -->
+              </a>
             </div>
+            <div class="col s9 valign-wrapper">
+              <div class="col s3 offset-s11 m3 offset-m7">
+                <a type="button" class="flow-text" id="link_profile" href="#" v-on:click="ale_example">
+                {{nickname}}
+                </a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+ 
+   <div class="row">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel cyan lighten-5 z-depth-1" style="height:70px;">
+          <div class="row valign-wrapper">
+            <div class="col s12 m12">
+                <span class="flow-text" id="date_post">
+                {{now}}
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+   </div>  
+    <div class="row">
+      <div class="col s12 m8 offset-m2 l6 offset-l3">
+      <div class="card-panel cyan lighten-5 z-depth-1">
+        <div class="row valign-wrapper">
+        <div class="input-field col s12 m12 l12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1" id="label_textarea1">¿Qué hace 
+            <span style="color: orange;">
+              {{nickname}}
+          </span> hoy?</label>
+        </div>
+        </div>
+      </div>
     </div>
-     <div class="row">
-         <div class="col s6 offset-s4 green">  
-         <img class="materialboxed" width="650" src="https://previews.123rf.com/images/pwg89/pwg891509/pwg89150900025/45306031-hojas-0peque%C3%B1as.jpg">
-         </div>
-     </div>    
-  </div>
-
-
+  </div> 
+  <div class="row">
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+      <div class="card-panel cyan lighten-5 z-depth-1" style="height:100px;">
+        <div class="row valign-wrapper">
+        <div class="col s2">
+          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">image</i></a>
+        </div>
+        <div class="col s4">
+          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">ondemand_video</i></a>
+        </div>
+        <div class="col s3">
+          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">gif</i></a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+   <div class="row">
+     <div class="col s12 m8 offset-m2 l6 offset-l3"> 
+    <div class="card-panel cyan lighten-5 z-depth-1" style="height:70px;">
       
+     <div style="position: relative; height:60px;">
+          <div class="fixed-action-btn horizontal direction-top direction-right" style="position: absolute; display: inline-block; right: 24px;padding-right:80%;">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">pets</i>
+            </a>
+            <ul>
+              <li>
+                <a class="btn-floating red">
+                  <i class="material-icons">sentiment_dissatisfied</i>
+                </a>
+              </li>
+              <li>
+                <a class="btn-floating yellow darken-1">
+                  <i class="material-icons">sentiment_neutral</i>
+                </a>
+              </li>
+              <li>
+                <a class="btn-floating green">
+                  <i class="material-icons">sentiment_satisfied</i>
+                </a>
+              </li>
+              <li>
+                <a class="btn-floating blue">
+                  <i class="material-icons">whatshot</i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    </div>
+   </div>
+
+     <div class="row">
+          <div class="col s12 m8 offset-m2 l6 offset-l3"> 
+            <div class="card-panel cyan lighten-5 z-depth-1">
+            <div class="card-action">
+              <a href="#"><span class="flow-text">Publicar</span></a>
+            </div>
+            </div>
+            </div>
+        </div>   
+  </div>  
+
 </template>
 
 <script>
 import M from 'materialize-css'
+import Swal from 'sweetalert2'
 export default {
   name: "Post",
   props: {
     msg: String,
-    now: new Date(),
+    now: {
+      type: String,
+      default:function () { return new Date().toDateString() }
+    },
     nickname: String,
   },
   mounted() {
     var elems = document.querySelectorAll('.fixed-action-btn');
     M.FloatingActionButton.init(elems, {
-      direction: 'left'
+      direction: 'right'
     });
     var elems_sel = document.querySelectorAll('select');
      M.FormSelect.init(elems_sel);
+    },
+    methods: {
+      ale_example: function(event) {
+        console.log(event.target)
+        Swal.fire('Any fool can use a computer')
+      }
     }
 };
 
@@ -162,10 +162,15 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #006064;
+  font-family: 'Architects Daughter', cursive;
 }
-.pepito {
-color: #6242b9;
+.bor_style{
+  border-radius: 35px;
+  border-style: dotted;
 }
 
+span{
+  font-family: 'Architects Daughter', cursive;
+}
 </style>

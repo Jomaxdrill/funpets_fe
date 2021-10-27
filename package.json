@@ -13,7 +13,12 @@
     "jwt-decode": "^3.1.2",
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.29.1",
+<<<<<<< HEAD
+=======
+    "sweetalert2": "^11.1.9",
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
     "vue": "^3.0.0",
+    "vue-axios": "^3.3.7",
     "vue-router": "^4.0.0-0"
   },
   "devDependencies": {

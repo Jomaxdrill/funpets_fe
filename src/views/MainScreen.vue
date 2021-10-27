@@ -50,17 +50,29 @@ export default {
   width: 100%;
   height: auto;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 #container {
   width: 1340px;
   height: auto;
   margin: auto;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 #header {
   height: 645px;
   width: 1344px;
   padding: 50px 50px 0px 50px;
   background-image: url("../assets/wp2016066.jpg");
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 #rectangle {
   width: 470px;
   height: 570px;
@@ -69,16 +81,28 @@ export default {
   bottom: 50px;
   box-shadow: 2px 2px 2px 1px black;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 #inside {
   position: relative;
   top: 60px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 #B1 {
   font-family: "Architects Daughter", cursive;
   position: relative;
   left: 5px;
   font-size: 40px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 #B2 {
   font-family: "Architects Daughter", cursive;
   position: relative;
@@ -86,6 +110,10 @@ export default {
   bottom: 25px;
   font-size: 30px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 #B3 {
   font-family: "Architects Daughter", cursive;
   position: relative;
@@ -93,24 +121,40 @@ export default {
   bottom: 60px;
   font-size: 45px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 #B4 {
   font-family: "Architects Daughter", cursive;
   position: relative;
   left: 17px;
   bottom: -10px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 #B5 {
   font-family: "Architects Daughter", cursive;
   position: relative;
   left: -2px;
   bottom: -5px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 #B6 {
   font-family: "Architects Daughter", cursive;
   position: relative;
   left: 49px;
   bottom: 32px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 .buttons #login {
   width: 130px;
   height: 40px;
@@ -121,6 +165,10 @@ export default {
   font-size: 16px;
   cursor: pointer;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
 .buttons #register {
   width: 130px;
   height: 40px;
@@ -129,4 +177,8 @@ export default {
   font-family: "Architects Daughter", cursive;
   cursor: pointer;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75

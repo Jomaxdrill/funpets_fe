@@ -1,10 +1,17 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
+<<<<<<< HEAD
     <router-link to="/about">About</router-link> | 
     <router-link to="/Inicio">Inicio</router-link> |
     <router-link to="/Login">Login</router-link> |
     <router-link to="/register">Register</router-link> 
+=======
+    <router-link to="/about">About</router-link>
+    <router-link to="/Inicio">Inicio</router-link>
+    <router-link to="/Login">Login</router-link>
+    
+>>>>>>> b8fc6835595b15958b0ebef0a85296712a84eb75
   </div>
   <router-view />
 </template>
