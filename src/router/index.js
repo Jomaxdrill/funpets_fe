@@ -2,6 +2,8 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import MainScreen from "../views/MainScreen.vue";
 import LoginScreen from "../views/LoginScreen.vue";
+import Wall from "../views/Wall.vue";
+import Register from "../views/Register.vue";
 
 const routes = [
   {
@@ -27,7 +29,17 @@ const routes = [
     path: "/Login",
     name: "Login",
     component: LoginScreen,
-  }
+  },
+  {
+    path: "/Wall",
+    name: "Wall",
+    component: Wall,
+  },
+  {
+    path: "/Register",
+    name: "Register",
+    component: Register,
+  },
 ];
 
 const router = createRouter({

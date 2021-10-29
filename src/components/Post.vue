@@ -1,148 +1,165 @@
 <template>
-  <div class="container">   
-    <div class="row">
-      <div class="col s12 m8 offset-m2 l6 offset-l3">
-        <div class="card-panel cyan lighten-5 z-depth-1" style="height:90px;">
-          <div class="row valign-wrapper">
-            <div class="col s3 valign-wrapper">
-               <a class="btn-floating btn-large waves-effect waves-light  light-blue lighten-5" id="link_pet" href="#">
-              <img alt="" class="responsive-img" src="https://ppeah.com/files/2020/07/iStock-639868212.jpg"
-               style="padding-top: 25%;"> <!-- notice the "circle" class -->
+<div class="post">
+  <div class="container">
+    <div class="card-panel white z-depth-1 shadow_box ">
+      <form v-on:submit.prevent="publish_post" id="creation_post">
+      <div class="row">
+             <div class="col s3 offset-s1 m3 offset-m1 l3 offset-l1 valign-wrapper">
+               <a class="btn-floating btn-large waves-effect waves-light  white" id="link_pet" href="#">
+              <img alt="" class="circle responsive-img" v-bind:src="url_pet"
+               style="padding-top: 23%;"> <!-- notice the "circle" class -->
               </a>
-            </div>
-            <div class="col s9 valign-wrapper">
-              <div class="col s3 offset-s11 m3 offset-m7">
-                <a type="button" class="flow-text" id="link_profile" href="#" v-on:click="ale_example">
-                {{nickname}}
+            </div>           
+         <div class="col s7 m7 l7 valign-wrapper">
+            <div class="col s3 offset-s9 m3 offset-m7">
+                <a type="button" class="flow-text" id="link_profile" href="#">
+                  <div style="margin-top:20px;">{{nickname}}</div>
                 </a>
-                </div>
             </div>
-          </div>
-        </div>
+         </div>
       </div>
-    </div> 
- 
-   <div class="row">
+      <div class="row">
         <div class="col s12 m8 offset-m2 l6 offset-l3">
-        <div class="card-panel cyan lighten-5 z-depth-1" style="height:70px;">
-          <div class="row valign-wrapper">
             <div class="col s12 m12">
                 <span class="flow-text" id="date_post">
                 {{now}}
                 </span>
             </div>
-          </div>
         </div>
       </div>
-   </div>  
-    <div class="row">
-      <div class="col s12 m8 offset-m2 l6 offset-l3">
-      <div class="card-panel cyan lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
+      <div class="row">
         <div class="input-field col s12 m12 l12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1" id="label_textarea1">¿Qué hace 
+          <textarea v-model="text_post" id="textarea1" class="materialize-textarea">
+          </textarea>
+          <label for="textarea1" id="label_textarea1">
             <span style="color: orange;">
-              {{nickname}}
-          </span> hoy?</label>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div> 
-  <div class="row">
-    <div class="col s12 m8 offset-m2 l6 offset-l3">
-      <div class="card-panel cyan lighten-5 z-depth-1" style="height:100px;">
-        <div class="row valign-wrapper">
-        <div class="col s2">
-          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">image</i></a>
-        </div>
-        <div class="col s4">
-          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">ondemand_video</i></a>
-        </div>
-        <div class="col s3">
-          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">gif</i></a>
-        </div>
+              {{msg_post}}
+          </span></label>
         </div>
       </div>
-    </div>
-  </div> 
-   <div class="row">
-     <div class="col s12 m8 offset-m2 l6 offset-l3"> 
-    <div class="card-panel cyan lighten-5 z-depth-1" style="height:70px;">
-      
-     <div style="position: relative; height:60px;">
-          <div class="fixed-action-btn horizontal direction-top direction-right" style="position: absolute; display: inline-block; right: 24px;padding-right:80%;">
-            <a class="btn-floating btn-large red">
-              <i class="large material-icons">pets</i>
-            </a>
-            <ul>
-              <li>
-                <a class="btn-floating red">
-                  <i class="material-icons">sentiment_dissatisfied</i>
-                </a>
-              </li>
-              <li>
-                <a class="btn-floating yellow darken-1">
-                  <i class="material-icons">sentiment_neutral</i>
-                </a>
-              </li>
-              <li>
-                <a class="btn-floating green">
-                  <i class="material-icons">sentiment_satisfied</i>
-                </a>
-              </li>
-              <li>
-                <a class="btn-floating blue">
-                  <i class="material-icons">whatshot</i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-    </div>
-    </div>
-   </div>
+      <div class="row">
+          <div class="col s4 m4 l4 ">   
+            <div class="file-field input-field col s6 offset-s2 l6 offset-l3">
+                <div class="btn btn-large waves-effect waves-light orange ">
+                    <i class="material-icons">image</i>
+                    <input type="file" v-on:click="showPreview" accept="image/*">
+                </div>
+            </div>
 
-     <div class="row">
-          <div class="col s12 m8 offset-m2 l6 offset-l3"> 
-            <div class="card-panel cyan lighten-5 z-depth-1">
-            <div class="card-action">
-              <a href="#"><span class="flow-text">Publicar</span></a>
+        </div>
+        <div class="col s4 m4 l4 ">
+            <div class="file-field input-field col s6 offset-s2 l6 offset-l3">
+                <div class="btn btn-large waves-effect waves-light orange ">
+                    <i class="material-icons ">videocam</i>
+                    <input type="file" v-on:click="showPreview" accept="image/*">
+                </div>
             </div>
+        </div>
+        <div class="col s4 m4 l4 ">
+                        <div class="file-field input-field col s6 offset-s2 l6 offset-l3">
+                <div class="btn btn-large waves-effect waves-light orange ">
+                    <i class="material-icons valign-wrapper">gif</i>
+                    <input type="file" v-on:click="showPreview" accept="image/*">
+                </div>
             </div>
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col s12 m8 offset-m2 l6 offset-l3"> 
+                <div class="card-action">
+                    <button class="btn btn-large waves-effect waves-light orange" type="submit"><span class="flow-text">Publicar</span></button>
+                </div>
             </div>
-        </div>   
+        </div>
+      </form> 
+      </div> 
   </div>  
-
+</div>
+ 
 </template>
 
 <script>
 import M from 'materialize-css'
 import Swal from 'sweetalert2'
+import moment from 'moment'
+import axios from 'axios'
+import jwtDecode from 'jwt-decode'
 export default {
   name: "Post",
   props: {
     msg: String,
     now: {
       type: String,
-      default:function () { return new Date().toDateString() }
+      default:function () { 
+          let date_now=new Date();
+          return new moment(date_now).format("YYYY-MM-DD"); }
     },
     nickname: String,
+    url_pet:{ 
+      type:String,
+    default:"https://www.pngfind.com/pngs/m/83-831888_pawprint-in-a-circle-of-pet-hotel-sign.png"
+    },
+    msg_post: String,
+  
+
+  },
+    data() {
+    return {
+      account_id: 0,
+      error_msg: "",
+      text_post: "",
+    };
   },
   mounted() {
-    var elems = document.querySelectorAll('.fixed-action-btn');
+ /**     var elems = document.querySelectorAll('.fixed-action-btn');
     M.FloatingActionButton.init(elems, {
       direction: 'right'
-    });
+    }); */
     var elems_sel = document.querySelectorAll('select');
      M.FormSelect.init(elems_sel);
     },
     methods: {
-      ale_example: function(event) {
-        console.log(event.target)
-        Swal.fire('Any fool can use a computer')
-      }
+      publish_post: function() {
+        let post_info={
+          
+        post_account_id: this.account_id,
+        post_typepost_id: "2",
+        post_text:this.text_post
+
+        }
+    let headers_post= {
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.access
+    }
+ }
+    let pk_user_id=jwtDecode(localStorage.access.user_id)
+    
+        axios.post(`http://127.0.0.1:8000/post/${pk_user_id}/`,post_info,headers_post).then((result) => {
+            console.log(result);
+            
+        Swal.fire({
+          title: 'Post creado',
+          confirmButtonColor: '#006064',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            //refrescar la pagina
+           // this.$router.push({name: "Wall"})
+          }
+        })
+      }).catch(error => {
+            console.error('There was an error!', error);
+        });
+      },
+      showPreview: function(event){
+        if(event.target.files.length > 0){
+          var src = URL.createObjectURL(event.target.files[0]);
+          var preview = document.getElementById("image_preview");
+          preview.src = src;
+          preview.style.display = "block";
+        }
+}
+
     }
 };
 
@@ -172,5 +189,13 @@ a {
 
 span{
   font-family: 'Architects Daughter', cursive;
+}
+
+a {
+  font-family: 'Architects Daughter', cursive;
+  color: #2C3E50;
+}
+.shadow_box{
+  box-shadow: 2px 2px 2px 1px black;
 }
 </style>

@@ -1,9 +1,10 @@
-<template>
+<template class="bg">
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
     <router-link to="/Inicio">Inicio</router-link>
     <router-link to="/Login">Login</router-link>
+    <router-link to="/Wall">Muro</router-link>
     
   </div>
   <router-view />
@@ -30,4 +31,22 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("assets/wp2016066.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 </style>

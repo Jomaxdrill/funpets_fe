@@ -90,6 +90,9 @@ export default {
         .post("http://127.0.0.1:8000/login/", json)
         .then((result) => {
           console.log(result);
+          localStorage.getItem(result.data.access);
+          localStorage.getItem(result.data.refresh);
+          this.$router.push("Wall");
         })
         .catch((error) => {
           console.error("There was an error!", error);
