@@ -13,12 +13,14 @@
               <button
                 id="login"
                 class="waves-effect waves-light btn orange darken-1"
+                v-on:click="enter_login"
               >
                 Iniciar Sesión
               </button>
               <button
                 id="register"
                 class="waves-effect waves-light btn orange darken-1"
+                v-on:click="enter_register"
               >
                 Registrarse
               </button>
@@ -40,8 +42,19 @@ import M from "materialize-css";
 export default {
   mounted() {
     M.AutoInit();
+    
   },
+  methods: {
+      enter_register:function(){
+        this.$router.push({name: "Register"});
+      },
+      enter_login:function(){
+        this.$router.push({name: "Login"});
+      }
+  }
 };
+
+
 </script>
 
 <style scoped>

@@ -5,14 +5,14 @@
       <form v-on:submit.prevent="publish_post" id="creation_post">
       <div class="row">
              <div class="col s3 offset-s1 m3 offset-m1 l3 offset-l1 valign-wrapper">
-               <a class="btn-floating btn-large waves-effect waves-light  white" id="link_pet" href="#">
-              <img alt="" class="circle responsive-img" v-bind:src="url_pet"
+               <a class="btn-floating btn-large waves-effect waves-light  white" id="link_pet" href="javascript:void(0);">
+              <img  class="circle responsive-img" alt="" v-bind:src="url_pet"
                style="padding-top: 23%;"> <!-- notice the "circle" class -->
               </a>
             </div>           
          <div class="col s7 m7 l7 valign-wrapper">
             <div class="col s3 offset-s9 m3 offset-m7">
-                <a type="button" class="flow-text" id="link_profile" href="#">
+                <a type="button" class="flow-text" id="link_profile" href="javascript:void(0);">
                   <div style="margin-top:20px;">{{nickname}}</div>
                 </a>
             </div>
@@ -68,10 +68,12 @@
       <div class="row">
         <div class="col s12 m8 offset-m2 l6 offset-l3"> 
                 <div class="card-action">
-                    <button class="btn btn-large waves-effect waves-light orange" type="submit"><span class="flow-text">Publicar</span></button>
+                    <button class="btn btn-large waves-effect waves-light orange"
+                     type="submit"><span class="flow-text" >Publicar</span></button>
                 </div>
             </div>
         </div>
+        <a id="pass_post" href="javascript:void(0);" @click="send_post" style="display:none;"></a>
       </form> 
       </div> 
   </div>  
@@ -98,17 +100,18 @@ export default {
     nickname: String,
     url_pet:{ 
       type:String,
-    default:"https://www.pngfind.com/pngs/m/83-831888_pawprint-in-a-circle-of-pet-hotel-sign.png"
+    default:"https://static-00.iconduck.com/assets.00/pets-icon-512x487-dmsvdjpw.png"
     },
     msg_post: String,
+    account_id: String,
   
 
   },
     data() {
     return {
-      account_id: 0,
       error_msg: "",
       text_post: "",
+      new_post:{},
     };
   },
   mounted() {
@@ -133,18 +136,27 @@ export default {
       'Authorization': 'Bearer ' + localStorage.access
     }
  }
-    let pk_user_id=jwtDecode(localStorage.access.user_id)
-    
+    let pk_user_id=jwtDecode(localStorage.access).user_id
+        console.log(post_info)
+        console.log(pk_user_id)
         axios.post(`http://127.0.0.1:8000/post/${pk_user_id}/`,post_info,headers_post).then((result) => {
+          console.log("el resultado es del post id");
             console.log(result);
-            
+            this.new_post.post_id=result.data['created record']
+            this.new_post.post_account_id=this.account_id
+            this.new_post.post_text=this.text_post
+            this.new_post.post_creation_date=moment().format("YYYY-MM-DD")
+            this.new_post.pet_nickname=this.nickname
+            this.new_post.pet_image=this.url_pet
         Swal.fire({
           title: 'Post creado',
-          confirmButtonColor: '#006064',
-        }).then((result) => {
-          if (result.isConfirmed) {
+          confirmButtonColor: '#ff9800',
+        }).then((result_conf) => {
+          if (result_conf.isConfirmed) {
             //refrescar la pagina
-           // this.$router.push({name: "Wall"})
+            document.getElementById("textarea1").value=""
+            document.getElementById("pass_post").click()
+            
           }
         })
       }).catch(error => {
@@ -158,7 +170,11 @@ export default {
           preview.src = src;
           preview.style.display = "block";
         }
-}
+      },
+      send_post(){
+        console.log(this.new_post)
+        this.$emit('click',this.new_post)
+      }
 
     }
 };
