@@ -1,14 +1,27 @@
 <template class="bg">
   <div id="nav">
-    <router-link to="/">Home</router-link> |
+   <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
     <router-link to="/Inicio">Inicio</router-link>
     <router-link to="/Login">Login</router-link>
-    <router-link to="/Wall">Muro</router-link>
-    
+    <router-link to="/Wall">Muro</router-link>...-->   
   </div>
   <router-view />
 </template>
+<script>
+
+export default {
+
+  mounted(){
+        this.$router.push({name: "Inicio"});
+  },
+
+  unmounted() {
+    localStorage.removeItem('access');
+    localStorage.removeItem('refresh');
+  }
+}
+</script>
 
 <style>
 #app {

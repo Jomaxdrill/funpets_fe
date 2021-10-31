@@ -6,6 +6,10 @@
       <Post_text msg="This is a textbox" nickname="pepito"> </Post_text>
       <Post_file msg="This is a file post" ></Post_file>
       <Post_publish msg="This is a post" nickname="pepito" post_info="{{this.}}"> </Post_publish>
+      <Publication text_info="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      date_info="2021-01-01"
+      url_pet_info="https://us.123rf.com/450wm/kurashova/kurashova1709/kurashova170900145/86321281-h%C3%A1mster-sirio-asustado-con-una-expresi%C3%B3n-divertida-aislado-en-blanco-.jpg?ver=6"
+       nickname_info="NicoFelip"></Publication>
     </div>
     <div class="container">
       <div id="muro_pet_1">
@@ -43,6 +47,7 @@ import Post_text from "@/components/Post_comp/Post_text.vue";
 import Post_file from "@/components/Post_comp/Post_file.vue";
 import Post_reaction from "@/components/Post_comp/Post_reaction.vue";
 import Post_publish from "@/components/Post_comp/Post_publish.vue";
+import Publication from "@/components/Publication.vue";
 export default {
   name: "About",
   components: {
@@ -52,6 +57,7 @@ export default {
     Post_file,
     Post_reaction,
     Post_publish,
+    Publication,
   },
 };
 </script>

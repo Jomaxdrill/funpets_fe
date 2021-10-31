@@ -15,11 +15,11 @@
                       <div class="input-field col s12 offset-s3">
                         <input
                           type="text"
-                          id="autocomplete-input"
+                          id="usuario"
                           class="autocomplete"
                           v-model="email"
                         />
-                        <label for="autocomplete-input">Correo</label>
+                        <label for="usuario">usuario</label>
                       </div>
                     </div>
                   </div>
@@ -29,12 +29,12 @@
                     <div class="row">
                       <div class="input-field col s12 offset-s3">
                         <input
-                          type="text"
-                          id="autocomplete-input"
-                          class="autocomplete"
+                          type="password"
+                          id="password"
+                          class="validate"
                           v-model="password"
                         />
-                        <label for="autocomplete-input">Contraseña</label>
+                        <label for="password">Contraseña</label>
                       </div>
                     </div>
                   </div>
@@ -68,6 +68,7 @@
 
 <script>
 import axios from "axios";
+import Swal from 'sweetalert2';
 export default {
   name: "Login",
   components: {},
@@ -86,19 +87,24 @@ export default {
         password: this.password,
       };
       console.log(json);
-      axios
-        .post("http://127.0.0.1:8000/login/", json)
+      axios.post("http://127.0.0.1:8000/login/", json)
         .then((result) => {
           console.log(result);
-          localStorage.getItem(result.data.access);
-          localStorage.getItem(result.data.refresh);
-          this.$router.push("Wall");
+          localStorage.setItem('access',result.data.access);
+          localStorage.setItem('refresh',result.data.refresh);
+          this.$router.push({name: "Wall"});
         })
         .catch((error) => {
           console.error("There was an error!", error);
+          Swal.fire({title: 'Error en usuario/contraseña',
+          confirmButtonColor: '#ff9800',})
         });
     },
   },
+    beforeCreate() {
+      localStorage.removeItem('access');
+      localStorage.removeItem('refresh');
+    },
 };
 </script>
 
@@ -157,9 +163,6 @@ export default {
 
 #password {
   font-family: "Architects Daughter", cursive;
-  width: 250px;
-  border: 2px solid black;
-  box-shadow: 2px 2px 2px 1px black;
 }
 
 #button_login {

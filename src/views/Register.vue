@@ -40,7 +40,7 @@
                                     <div class="col s8">
                                         <div class="row">
                                             <div class="input-field col s12 offset-s3">
-                                            <input type="text" id="autocomplete-input" class="autocomplete" v-model="password">
+                                            <input type="password" id="autocomplete-input" class="autocomplete" v-model="password">
                                             <label for="autocomplete-input">Contraseña</label>
                                             </div>
                                         </div>
@@ -158,7 +158,7 @@ export default {
           console.log(token_decode)
           let user_id_token = token_decode.user_id
           console.log(user_id_token)
-          let date_pet=new moment(this.petdate).format("YYYY-MM-DD")
+          let date_pet=moment(this.petdate).format("YYYY-MM-DD")
           console.log(date_pet)
           let json_pet ={
             account_name: "@" + this.petname,
