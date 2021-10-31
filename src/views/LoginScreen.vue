@@ -19,11 +19,7 @@
                           class="autocomplete"
                           v-model="email"
                         />
-<<<<<<< HEAD
-                        <label for="autocomplete-input">Username</label>
-=======
                         <label for="usuario">usuario</label>
->>>>>>> 5d62059846589c7feaa6bc3221eb554c295421f9
                       </div>
                     </div>
                   </div>

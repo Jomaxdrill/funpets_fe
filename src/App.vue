@@ -1,20 +1,10 @@
 <template class="bg">
   <div id="nav">
-<<<<<<< HEAD
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/Inicio">Inicio</router-link> |
-    <router-link to="/Login">Login</router-link> |
-    <router-link to="/Register">Registro</router-link> |
-    <router-link to="/Wall">Muro</router-link>
-    
-=======
    <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
     <router-link to="/Inicio">Inicio</router-link>
     <router-link to="/Login">Login</router-link>
     <router-link to="/Wall">Muro</router-link>...-->   
->>>>>>> 5d62059846589c7feaa6bc3221eb554c295421f9
   </div>
   <router-view />
 </template>
