@@ -19,7 +19,7 @@
                           class="autocomplete"
                           v-model="email"
                         />
-                        <label for="autocomplete-input">Correo</label>
+                        <label for="autocomplete-input">Username</label>
                       </div>
                     </div>
                   </div>
