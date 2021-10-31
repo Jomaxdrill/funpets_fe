@@ -98,7 +98,7 @@ export default {
     date_info: String,
     url_pet_info:{ 
       type:String,
-    default:"https://static-00.iconduck.com/assets.00/pets-icon-512x487-dmsvdjpw.png"
+    default:function(){return 'https://cdn-icons-png.flaticon.com/512/64/64431.png'}
     },
     
   },

@@ -82,7 +82,6 @@ export default {
     M.Dropdown.init(elems_drop);
     var user_id_token = jwtDecode(localStorage.getItem("access")).user_id;
     axios.get(`http://127.0.0.1:8000/userAccounts/${user_id_token}/`).then((result) =>{
-                console.log(result);
                 this.pet_list=result.data
             })
             .catch((error) => {
@@ -97,7 +96,6 @@ export default {
             this.$router.push({name: "Inicio"});
         },
         handlePetAcc(){
-            console.log(this.picked)
             this.$emit("click",this.picked);
         }
     }

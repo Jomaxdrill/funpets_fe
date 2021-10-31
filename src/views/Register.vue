@@ -120,7 +120,7 @@
 import axios from "axios";
 import M from 'materialize-css';
 import jwtDecode from 'jwt-decode'
-import moment from 'moment'
+//import moment from 'moment'
 export default {
   name: "register",
   components: {},
@@ -147,19 +147,12 @@ export default {
         description: `hola soy ${this.username}`,
         birthdate: "2000-01-01",
         };
-      
-      console.log(json);
       axios
         .post("http://127.0.0.1:8000/user/", json)
         .then((result) => {
-          console.log(result);
-          console.log(result.data.access);
           let  token_decode = jwtDecode(result.data.access)
-          console.log(token_decode)
           let user_id_token = token_decode.user_id
-          console.log(user_id_token)
-          let date_pet=moment(this.petdate).format("YYYY-MM-DD")
-          console.log(date_pet)
+          //let date_pet=moment(this.petdate).format("YYYY-MM-DD")
           let json_pet ={
             account_name: "@" + this.petname,
             account_nickname: this.petname,
@@ -168,17 +161,14 @@ export default {
             account_typepet_id: this.species,
             account_birthdate: "2000-01-01",
             };
-            console.log(json_pet);
                    let config= {
                        headers: {
                            'Authorization': 'Bearer ' + result.data.access
                         }
                     }
-                console.log(config);
             axios
             .post(`http://127.0.0.1:8000/account/${json_pet.account_user_id}/`, json_pet, config)
-            .then((result) =>{
-                console.log(result);
+            .then(() =>{
                 this.$router.push({name: "Inicio"})
             })
             .catch((error) => {

@@ -47,7 +47,7 @@ export default {
   data() {
         return {
       nickname_post: "",
-      url_pet_post:"",
+      url_pet_post:{type:String,default: function(){return "https://cdn-icons-png.flaticon.com/512/64/64431.png"}},
       pet_id: "",
       error_msg: "",
       text_post: "",
@@ -56,13 +56,10 @@ export default {
     };
   },
     beforeCreate() {
-
-    console.log('No se ha ejecutado nada todavía')
     //darle un refresh token 
     //verificar que hayan tokens en el cliente y por si algo refrescar el token 
     const token_check= jwtDecode(localStorage.getItem('access')).user_id
     const logged=token_check==null || token_check==undefined ? false:true;
-    console.log("estoy logeado:"+logged)
     if(!logged) {
       this.$router.push({name: "Inicio"});
     }
@@ -74,16 +71,13 @@ export default {
       axios.get(`http://127.0.0.1:8000/posts/`)
       .then((result) => {
         var post_set=result.data;
-        console.log(post_set)
         post_set.forEach((post_elem) => {
-          console.log(post_elem)
           let element_post={
               post_text: post_elem.post_text,
               post_creation_date: moment(post_elem.post_creation_date).format("YYYY-MM-DD"),
               post_id:post_elem.post_id,
 
           }
-          console.log(element_post)
           let config= {
                        headers: {
                            'Authorization': 'Bearer ' + localStorage.getItem('access')
@@ -93,9 +87,12 @@ export default {
           let user_id_token=jwtDecode(localStorage.getItem('access')).user_id 
           axios.get(`http://127.0.0.1:8000/account/${user_id_token}/${post_elem.post_account_id}/`,config)
           .then((result_1) =>{
-              let final_element_post={...element_post,pet_nickname:result_1.data.account_nickname,pet_image:result_1.data.account_image}
+            let image_pet=result_1.data.account_image==null||result_1.data.account_image==undefined?
+"https://media.istockphoto.com/photos/golden-hamster-in-front-of-white-background-picture-id1137633429?k=20&m=1137633429&s=612x612&w=0&h=eDd2QvHgIjUyvdnR_NYKj5UlMsKExNtTNxnOVFo7Vqo=":
+result_1.data.account_image
+        
+              let final_element_post={...element_post,pet_nickname:result_1.data.account_nickname,pet_image:image_pet}
               this.post_list.unshift(final_element_post);
-              console.log(result_1);
             })
             .catch((error_1) => {
                 console.error("la kagaste!", error_1);
@@ -109,13 +106,16 @@ export default {
       })
   },
   mounted(){
+    //icono por default 
     //obtener la primera mascota por default
         var user_id_token = jwtDecode(localStorage.getItem("access")).user_id;
     axios.get(`http://127.0.0.1:8000/userAccounts/${user_id_token}/`).then((result) =>{
-                console.log(result);
                 this.pet_id=result.data[0].account_id
                 this.nickname_post=result.data[0].account_nickname
                 this.url_pet_post=result.data[0].account_image
+                if(this.url_pet_post==null || this.url_pet_post==undefined){
+                this.url_pet_post="https://cdn-icons-png.flaticon.com/512/64/64431.png"
+              }
 
             })
             .catch((error) => {
@@ -138,8 +138,6 @@ export default {
         this.url_pet_post= info_pet[2]
      },
     send_post:function(info){
-      console.log("el nuevo post es")
-      console.log(info)
         if( 'post_id' in info){
           this.post_list.unshift(info);
         }

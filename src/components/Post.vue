@@ -100,7 +100,7 @@ export default {
     nickname: String,
     url_pet:{ 
       type:String,
-    default:"https://static-00.iconduck.com/assets.00/pets-icon-512x487-dmsvdjpw.png"
+      default:function(){return 'https://static-00.iconduck.com/assets.00/pets-icon-512x487-dmsvdjpw.png';}
     },
     msg_post: String,
     account_id: String,
@@ -121,6 +121,7 @@ export default {
     }); */
     var elems_sel = document.querySelectorAll('select');
      M.FormSelect.init(elems_sel);
+ 
     },
     methods: {
       publish_post: function() {

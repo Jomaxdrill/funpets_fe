@@ -86,10 +86,8 @@ export default {
         username: this.email,
         password: this.password,
       };
-      console.log(json);
       axios.post("http://127.0.0.1:8000/login/", json)
         .then((result) => {
-          console.log(result);
           localStorage.setItem('access',result.data.access);
           localStorage.setItem('refresh',result.data.refresh);
           this.$router.push({name: "Wall"});
