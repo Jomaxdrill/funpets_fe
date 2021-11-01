@@ -1,9 +1,13 @@
 # funpets_fe
 Front End Social Network FunPets
 Course Project for Mission TIC 2022 Web development
+
 Current branch project: Prototype
+
 This project is a social network aimed to share about our pets daily.
+
 Work with @Mario95928 @Nitrolax
+
 # Front End: Vue.js
 dependencies 
 "axios": "^0.23.0",
