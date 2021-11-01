@@ -3,9 +3,9 @@ Front End Social Network FunPets
 Course Project for Mission TIC 2022 Web development
 Current branch project: Prototype
 This project is a social network aimed to share about our pets daily.
-Front End: Vue.js
+# Front End: Vue.js
 dependencies 
-    "axios": "^0.23.0",
+"axios": "^0.23.0",
     "core-js": "^3.6.5",
     "jwt-decode": "^3.1.2",
     "materialize-css": "^1.0.0-rc.2",
@@ -13,7 +13,8 @@ dependencies
     "sweetalert2": "^11.1.9",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"
- Back End: Django
+ # Back End: Django
+ visit: https://bitbucket.org/Jomaxdrill/funpets/src/master/
  dependencies
   Database-Postgre SQL Heroku server deployment
   cors headers middle ware
